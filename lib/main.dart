@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:golf_yy/common/styles/colors.dart';
 import 'package:golf_yy/common/view_models/dark_mode_view_model.dart';
-import 'package:golf_yy/features/onboarding/screens/onboarding_slides.dart';
 import 'package:golf_yy/router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  await Supabase.initialize(
+    url: 'https://eyzlxcqkukbqswakdsws.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5emx4Y3FrdWticXN3YWtkc3dzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY1MjUxODEsImV4cCI6MjA2MjEwMTE4MX0.Yr3gx4EAyk0jgNFtVHrTTkuc5viUd1yi1uAdAMYoYqk',
+  );
   runApp(ProviderScope(child: GolfYYApp()));
 }
 
