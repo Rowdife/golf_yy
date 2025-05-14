@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:golf_yy/common/widgets/themed_text.dart';
+import 'package:golf_yy/features/auth/view_models/social_sign_in.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class AuthGoogleButton extends StatelessWidget {
+class AuthGoogleButton extends ConsumerWidget {
   const AuthGoogleButton({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.7,
       height: 44,
       child: ElevatedButton(
         onPressed: () {
-          print('google button pressed');
+          ref.read(socialSignInProvider).googleSignIn();
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xffF2F2F2),

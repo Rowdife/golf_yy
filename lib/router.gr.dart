@@ -9,8 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:golf_yy/features/auth/screens/login.dart' as _i1;
-import 'package:golf_yy/features/onboarding/screens/onboarding_slides.dart'
+import 'package:golf_yy/features/auth/views/login.dart' as _i1;
+import 'package:golf_yy/features/onboarding/views/onboarding_slides.dart'
     as _i2;
 
 /// generated route for

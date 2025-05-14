@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:golf_yy/common/widgets/themed_text.dart';
-import 'package:golf_yy/features/auth/widgets/buttons/auth_apple_button.dart';
-import 'package:golf_yy/features/auth/widgets/buttons/auth_google_button.dart';
+import 'package:golf_yy/features/auth/views/widgets/buttons/auth_apple_button.dart';
+import 'package:golf_yy/features/auth/views/widgets/buttons/auth_google_button.dart';
 
 @RoutePage()
 class LoginScreen extends StatelessWidget {

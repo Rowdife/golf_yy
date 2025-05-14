@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:golf_yy/features/auth/screens/login.dart';
+import 'package:golf_yy/features/auth/views/login.dart';
 import 'package:golf_yy/router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
