@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class GoogleLoginService {
-  const GoogleLoginService();
+class GoogleAuthService {
+  const GoogleAuthService();
 
   Future<void> googleAuthSignIn() async {
     const iosClientId =
@@ -39,6 +39,6 @@ class GoogleLoginService {
 }
 
 // Riverpod Provider 등록
-final googleLoginServiceProvider = Provider<GoogleLoginService>((ref) {
-  return const GoogleLoginService();
+final GoogleAuthServiceProvider = Provider<GoogleAuthService>((ref) {
+  return const GoogleAuthService();
 });

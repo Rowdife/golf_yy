@@ -1,10 +1,10 @@
 import 'package:golf_yy/features/auth/view_models/services/google_auth_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SocialSignIn {
+class SocialAuth {
   final GoogleAuthService googleAuthService;
 
-  SocialSignIn({required this.googleAuthService});
+  SocialAuth({required this.googleAuthService});
 
   Future<void> googleSignIn() async {
     await googleAuthService.googleAuthSignIn();
@@ -16,6 +16,6 @@ class SocialSignIn {
   }
 }
 
-final socialSignInProvider = Provider<SocialSignIn>((ref) {
-  return SocialSignIn(googleAuthService: ref.watch(GoogleAuthServiceProvider));
+final socialAuthProvider = Provider<SocialAuth>((ref) {
+  return SocialAuth(googleAuthService: ref.watch(GoogleAuthServiceProvider));
 });

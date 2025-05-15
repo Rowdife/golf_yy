@@ -8,6 +8,10 @@ import 'package:golf_yy/router.gr.dart';
 class OnboardingSlidesScreen extends StatelessWidget {
   const OnboardingSlidesScreen({super.key});
 
+  void navigateToLoginScreen(BuildContext context) {
+    context.router.push(LoginRoute());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +20,9 @@ class OnboardingSlidesScreen extends StatelessWidget {
           children: [
             const ThemedText(text: 'Onboarding Slides'),
             ThemedButton(
-                text: 'Next',
-                onPressed: () => context.router.push(const LoginRoute())),
+              text: 'Next',
+              onPressed: () => navigateToLoginScreen(context),
+            ),
           ],
         ),
       ),
