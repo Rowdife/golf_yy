@@ -12,7 +12,8 @@ class GoogleAuthService {
       clientId: iosClientId,
     );
     final googleUser = await googleSignIn.signIn();
-    final googleAuth = await googleUser!.authentication;
+    if (googleUser == null) return;
+    final googleAuth = await googleUser.authentication;
     final accessToken = googleAuth.accessToken;
     final idToken = googleAuth.idToken;
     if (accessToken == null) {
