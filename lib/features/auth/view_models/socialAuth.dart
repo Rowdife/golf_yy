@@ -8,7 +8,6 @@ class SocialAuth {
 
   Future<void> googleSignIn() async {
     await googleAuthService.googleAuthSignIn();
-    print('google sign in success');
   }
 
   Future<void> signOut() async {
