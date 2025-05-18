@@ -21,20 +21,41 @@ class LoginScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
+    final isLoggedInAsync = ref.watch(isLoggedInProvider);
+    print('is logged in: ${isLoggedInAsync.value}');
+
+    isLoggedInAsync.whenData((isLoggedIn) {
+      if (isLoggedIn) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          context.router.replace(const TimelineRoute());
+        });
+      }
+    });
+
+    return isLoggedInAsync.when(
+      data: (isLoggedIn) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Login'),
+          ),
+          body: Center(
+            child: Column(
+              children: [
+                const ThemedText(text: 'Login'),
+                const Gap(10),
+                AuthGoogleButton(),
+                const Gap(10),
+                const AuthAppleButton(),
+              ],
+            ),
+          ),
+        );
+      },
+      loading: () => const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const ThemedText(text: 'Login'),
-            const Gap(10),
-            AuthGoogleButton(),
-            const Gap(10),
-            const AuthAppleButton(),
-          ],
-        ),
+      error: (err, stack) => Scaffold(
+        body: Center(child: Text('エラーが発生しました: $err')),
       ),
     );
   }

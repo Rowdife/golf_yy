@@ -14,13 +14,30 @@ class AuthGoogleButton extends ConsumerWidget {
   void onGoogleSignInTap(BuildContext context, WidgetRef ref) async {
     if (isLoggingIn) return;
     isLoggingIn = true;
-    final isAuthStateLoggedIn = ref.read(authStateProvider).value;
-    if (isAuthStateLoggedIn == true) {
+
+    await ref.read(socialAuthProvider).googleSignIn();
+
+    final isLoggedInAfter = ref.watch(isLoggedInProvider).value;
+    if (isLoggedInAfter == true) {
+      print('login success');
       context.router.push(const TimelineRoute());
     } else {
-      await ref.read(socialAuthProvider).googleSignIn();
-      print(isAuthStateLoggedIn);
+      print('login failed');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('ログインに失敗しました'),
+          duration: const Duration(seconds: 2),
+          backgroundColor: Colors.red,
+          action: SnackBarAction(
+            label: '閉じる',
+            onPressed: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            },
+          ),
+        ),
+      );
     }
+
     isLoggingIn = false;
   }
 
