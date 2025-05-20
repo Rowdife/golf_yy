@@ -51,9 +51,7 @@ class GolfYYApp extends ConsumerWidget {
               ],
             ),
           ),
-          child: SafeArea(
-            child: child!,
-          ),
+          child: child!,
         );
       },
     );
