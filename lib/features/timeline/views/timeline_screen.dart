@@ -8,8 +8,11 @@ class TimelineScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Timeline'),
+      ),
+      body: const Center(
         child: Column(
           children: [
             Text('Timeline'),

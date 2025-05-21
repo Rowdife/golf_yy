@@ -38,6 +38,11 @@ class GolfYYApp extends ConsumerWidget {
                 : AppColors.textOnLightMode,
           ),
         ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: isDarkMode
+              ? AppColors.backgroundOnDarkMode
+              : AppColors.backgroundOnLightMode,
+        ),
       ),
       builder: (context, child) {
         return Container(

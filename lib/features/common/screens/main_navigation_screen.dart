@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:golf_yy/common/styles/colors.dart';
+import 'package:golf_yy/features/dashboard/screens/dashboard_screen.dart';
 import 'package:golf_yy/features/timeline/views/timeline_screen.dart';
 
 @RoutePage()
@@ -18,7 +19,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   final List<Widget> _screens = [
     const TimelineScreen(),
-    const TimelineScreen(),
+    const DashboardScreen(),
     const TimelineScreen(),
     const TimelineScreen(),
   ];
@@ -26,14 +27,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: IndexedStack(
-          index: _currentIndex,
-          children: _screens,
-        ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppColors.backgroundOnDarkMode,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
