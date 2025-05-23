@@ -33,6 +33,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: AppColors.textOnDarkMode,
+        unselectedItemColor: AppColors.textOnDarkMode.withOpacity(0.5),
         onTap: (index) {
           setState(() {
             _currentIndex = index;
